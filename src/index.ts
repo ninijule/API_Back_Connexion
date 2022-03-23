@@ -2,8 +2,10 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import helmet from "helmet";
 import path from "path";
+import dotenv from "dotenv";
+
 const app = express();
-const port = 8080; // default port to listen
+dotenv.config({ path: __dirname+'/.env' });
 
 // Configure Express to use EJS
 app.set("views", path.join(__dirname, "views"));
@@ -21,7 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // start the express server
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
     // tslint:disable-next-line:no-console
-    console.log(`server started at http://localhost:${port}`);
+    console.log(`server started at http://localhost:${process.env.PORT}`);
 });
