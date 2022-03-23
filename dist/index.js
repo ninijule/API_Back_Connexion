@@ -4,6 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const cookie_parser_1 = __importDefault(require("cookie-parser"));
+const helmet_1 = __importDefault(require("helmet"));
 const path_1 = __importDefault(require("path"));
 const app = (0, express_1.default)();
 const port = 8080; // default port to listen
@@ -15,6 +17,10 @@ app.get("/", (req, res) => {
     // render the index template
     res.render("index");
 });
+app.use((0, helmet_1.default)());
+app.use((0, cookie_parser_1.default)());
+app.use(express_1.default.json());
+app.use(express_1.default.urlencoded({ extended: true }));
 // start the express server
 app.listen(port, () => {
     // tslint:disable-next-line:no-console
