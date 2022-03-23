@@ -23,7 +23,7 @@ app.use((0, cookie_parser_1.default)());
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 // start the express server
-app.listen(process.env.PORT, () => {
+app.listen(8000, () => {
     // tslint:disable-next-line:no-console
     console.log(`server started at http://localhost:${process.env.PORT}`);
 });

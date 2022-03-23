@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // start the express server
-app.listen(process.env.PORT, () => {
+app.listen(8000, () => {
     // tslint:disable-next-line:no-console
     console.log(`server started at http://localhost:${process.env.PORT}`);
 });
