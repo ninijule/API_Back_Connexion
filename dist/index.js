@@ -24,6 +24,6 @@ routes_1.default.forEach((router) => {
 // start the express server
 app.listen(8000, () => {
     // tslint:disable-next-line:no-console
-    console.log(`server started at http://localhost:${process.env.PORT}`);
+    console.log(`server started at http://localhost:8000`);
 });
 //# sourceMappingURL=index.js.map
