@@ -4,6 +4,6 @@ import AuthController from "../controller/AuthController";
 
 const router = express.Router();
 
-router.post("/", body("email").stripLow().escape().isLength({ min: 0, max: 80 }), body("password").stripLow().escape().isLength({ min: 0 }), AuthController.login);
+router.post("/", body("email").isEmail().isLength({ min: 1 }), body("password").escape().stripLow().isLength({ min: 7 }), AuthController.login);
 
 export default router;

@@ -1,6 +1,7 @@
 import { validationResult } from "express-validator";
-import { NextFunction, request, Request, Response } from "express";
-
+import { NextFunction, Request, Response } from "express";
+import login from "../use_case/login";
+import LoginRequest from "request/loginRequest";
 
 export default {
     login: async (req: Request, res: Response, next: NextFunction) => {
@@ -9,6 +10,13 @@ export default {
             if (!errors.isEmpty()) {
                 return res.status(400).json({ errors: errors.array() });
             }
+
+            const request: LoginRequest = {
+                email: req.body.email,
+                password: req.body.password
+            }
+
+            return res.send(await login(request));
 
         } catch (error) {
             next(error);
