@@ -16,11 +16,7 @@ export default {
                 password: req.body.password
             }
 
-            try {
-                return res.send(await login(request));
-            } catch (error) {
-                next(error);
-            }
+            return res.send(await login(request));
 
         } catch (error) {
             next(error);

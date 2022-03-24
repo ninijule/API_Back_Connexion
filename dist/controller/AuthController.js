@@ -12,17 +12,11 @@ exports.default = {
             if (!errors.isEmpty()) {
                 return res.status(400).json({ errors: errors.array() });
             }
-            console.log(req.body.email);
             const request = {
                 email: req.body.email,
                 password: req.body.password
             };
-            try {
-                return res.send(await (0, login_1.default)(request));
-            }
-            catch (error) {
-                next(error);
-            }
+            return res.send(await (0, login_1.default)(request));
         }
         catch (error) {
             next(error);

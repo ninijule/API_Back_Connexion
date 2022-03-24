@@ -17,7 +17,7 @@ app.set("view engine", "ejs");
 app.use((0, helmet_1.default)());
 app.use((0, cookie_parser_1.default)());
 app.use(express_1.default.json());
-app.use(express_1.default.urlencoded({ extended: true }));
+app.use(express_1.default.urlencoded({ extended: false }));
 routes_1.default.forEach((router) => {
     app.use(router.path, router.router);
 });

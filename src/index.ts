@@ -17,7 +17,7 @@ app.set("view engine", "ejs");
 app.use(helmet());
 app.use(cookieParser());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
 routers.forEach((router: RouterConfig) => {
     app.use(router.path, router.router);
