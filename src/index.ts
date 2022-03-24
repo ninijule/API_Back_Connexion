@@ -17,7 +17,7 @@ app.set("view engine", "ejs");
 app.use(helmet());
 app.use(cookieParser());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
 routers.forEach((router: RouterConfig) => {
     app.use(router.path, router.router);
@@ -26,5 +26,5 @@ routers.forEach((router: RouterConfig) => {
 // start the express server
 app.listen(8000, () => {
     // tslint:disable-next-line:no-console
-    console.log(`server started at http://localhost:${process.env.PORT}`);
+    console.log(`server started at http://localhost:8000`);
 });
